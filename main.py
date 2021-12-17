@@ -45,8 +45,15 @@ class GUI(QMainWindow):
 
 
     def buttonClicked(self):
-        ts.set_token('a9d869752e3ed081211e77cb034d1358a575616c97eac639c3cd82e3')#token需要自己在tushare网上上获得
+        ts.set_token('')#token需要自己在tushare网上上获得
         pro = ts.pro_api()
+
+        data = pro.stock_basic(exchange='', list_status='L', market='主板', fields='ts_code,symbol,name,area,industry,list_date,is_hs')
+        data['flag'] = 0
+        print(data)
+        data.to_csv('stock-list.csv')
+        #df = pd.read_csv('all_forum_info.csv')
+
         code = str(self.qle.text())
         begin_date = '20200709'
         end_date = '20210219'
