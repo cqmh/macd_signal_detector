@@ -45,7 +45,7 @@ class GUI(QMainWindow):
 
 
     def buttonClicked(self):
-        ts.set_token('')#token需要自己在tushare网上上获得
+        ts.set_token('a9d869752e3ed081211e77cb034d1358a575616c97eac639c3cd82e3')#token需要自己在tushare网上上获得
         pro = ts.pro_api()
         code = str(self.qle.text())
         begin_date = '20200709'
